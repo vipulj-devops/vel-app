@@ -1,23 +1,23 @@
 pipeline{
     agent {
-        label "built-in"
+        label "slave1"
         customWorkspace "/mnt/vel-app-1"
     }
     stages{
         stage('install httpd'){
             steps{
-                sh "yum install httpd -y"
+                sh "sudo yum install httpd -y"
             }
         }
         stage("start httpd"){
             steps{
-                sh "systemctl start httpd"
+                sh "sudo systemctl start httpd"
             }
         }
         stage("deploy index"){
             steps{
-                sh "cp -r index.html /var/www/html"
-                sh "chmod -R 777 /var/www/html/index.html"
+                sh "sudo cp -r index.html /var/www/html"
+                sh "sudo chmod -R 777 /var/www/html/index.html"
             }
         }
     }
