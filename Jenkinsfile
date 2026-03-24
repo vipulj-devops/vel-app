@@ -1,7 +1,9 @@
 pipeline{
     agent {
-        label "slave1"
-        customWorkspace "/mnt/vel-app-1"
+        label {
+            label "slave1"
+            customWorkspace "/mnt/vel-app-1"
+        }
     }
     stages{
         stage('install httpd'){
