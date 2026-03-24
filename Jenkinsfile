@@ -1,7 +1,9 @@
 pipeline{
     agent {
-        label "built-in"
-        customWorkspace "/mnt/vel-app-1"
+        label {
+            label "built-in"
+            customWorkspace "/mnt/vel-app-1"
+        }
     }
     stages{
         stage('install httpd'){
